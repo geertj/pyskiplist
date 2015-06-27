@@ -150,9 +150,9 @@ class TestSkipList(TestCase):
         for key in values:
             self.assertEqual(sl.search(key), values[key][0])
             check(sl); self.assertEqual(list(sl), pairs)
-            self.assertIsNone(sl.search(random.randint(2*size, 10*size)))
+            self.assertIsNone(sl.search(random.randint(3*size, 10*size)))
             check(sl); self.assertEqual(list(sl), pairs)
-            self.assertEqual(sl.search(random.randint(2*size, 10*size), -1), -1)
+            self.assertEqual(sl.search(random.randint(3*size, 10*size), -1), -1)
             check(sl); self.assertEqual(list(sl), pairs)
 
     def test_remove(self):
@@ -187,7 +187,7 @@ class TestSkipList(TestCase):
         for key in values:
             self.assertIn(key, sl)
             check(sl); self.assertEqual(list(sl), pairs)
-            self.assertNotIn(random.randint(2*size, 10*size), sl)
+            self.assertNotIn(random.randint(3*size, 10*size), sl)
             check(sl); self.assertEqual(list(sl), pairs)
 
     def test_index(self):
@@ -196,7 +196,7 @@ class TestSkipList(TestCase):
         for key in values:
             self.assertEqual(sl.index(key), pairs.index((key, values[key][0])))
             check(sl); self.assertEqual(list(sl), pairs)
-            self.assertRaises(KeyError, sl.index, random.randint(2*size, 10*size))
+            self.assertRaises(KeyError, sl.index, random.randint(3*size, 10*size))
             check(sl); self.assertEqual(list(sl), pairs)
 
     def test_count(self):
@@ -205,7 +205,7 @@ class TestSkipList(TestCase):
         for key in values:
             self.assertEqual(sl.count(key), len(values[key]))
             check(sl); self.assertEqual(list(sl), pairs)
-            self.assertEqual(sl.count(random.randint(2*size, 10*size)), 0)
+            self.assertEqual(sl.count(random.randint(3*size, 10*size)), 0)
             check(sl); self.assertEqual(list(sl), pairs)
 
     # BY POSITION API ...
