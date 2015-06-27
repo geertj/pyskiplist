@@ -22,7 +22,7 @@ alternative Python implementations such as PyPy and Jython.
 
 
 Example
-=======
+-------
 
 The following provides a few examples on how to use the ``SkipList`` API::
 
@@ -41,7 +41,7 @@ The following provides a few examples on how to use the ``SkipList`` API::
 
 
 Asymptotic Complexity
-=====================
+---------------------
 
 Below are the Big-O complexities of the various operations implemented by
 pyskiplist:
@@ -60,7 +60,7 @@ delete by position  O(log N)
 
 
 Performance
-===========
+-----------
 
 Below are the results of some performance tests. These are for Python 3.4.2 on
 my Linux laptop:
@@ -81,7 +81,7 @@ Search @ 100k nodes  77,939
 
 
 Memory usage
-============
+------------
 
 PySkipList tries to be efficient with regards to memory usage. The numbers
 below are for Python 3.4.2 on my Linux laptop. This specific test stores pairs
@@ -98,7 +98,7 @@ Nodes  Bytes / node  Overhead (fixed)
 
 
 Implementation notes
-====================
+--------------------
 
 Reference papers on skiplists:
 
