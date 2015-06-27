@@ -1,6 +1,9 @@
 Welcome to PySkipList
 =====================
 
+.. image:: https://travis-ci.org/geertj/pyskiplist.svg?branch=master
+    :target: https://travis-ci.org/geertj/pyskiplist
+
 PySkipList is a fast, pure Python implementation of an indexable skiplist. It
 implements a ``SkipList`` data structure that provides an always sorted,
 list-like data structure for (key, value) pairs. It efficiently supports the
@@ -85,13 +88,13 @@ below are for Python 3.4.2 on my Linux laptop. This specific test stores pairs
 of integer keys and an integer values in a skiplist. The total size of the two
 integers on this Python version is 56 bytes.
 
-=====  ============  ===============
-Nodes  Bytes / node  Overhead / node
-=====  ============  ===============
+=====  ============  =================
+Nodes  Bytes / node  Overhead (fixed)
+=====  ============  =================
 1k     164           108
 10k    162           106
 100k   162           106
-=====  ============  ===============
+=====  ============  =================
 
 
 Implementation notes
@@ -105,18 +108,18 @@ Reference papers on skiplists:
 This implementation uses a novel (as far as I know) technique where it stores
 just a single link width per node, and only in nodes with level > 0. The link
 corresponds to the number of nodes skipped by the highest incoming link. Other
-implementations that I've seen all store a width for every link. The approach
-taken here saves a lot of memory. The overhead should just be 1/e (0.37)
-integer per node.
+implementations that I've seen all store a width for every link. This approach
+saves a lot of memory. The overhead should just be 1/e (0.37) integers per
+node. It makes an indexable skiplist almost as memory efficient as its
+non-indexable cousin.
 
 Duplicate keys are allowed in this implementation, and insertion order is
-maintained. That said, no special API support is provided for working with
-duplicate keys.  For example, the `remove()` function removes the first pair it
-encounters with the given key, irrespective of the key's value.
+maintained.
 
-Skiplist nodes are plain lists instead of objects. This saves memory. Kudos to
-http://pythonsweetness.tumblr.com/post/45227295342 for the idea.
+Skiplist nodes are implemented as plain lists instead of objects. This saves
+memory. Kudos to http://pythonsweetness.tumblr.com/post/45227295342 for the
+idea.
 
-The built-in Mersenne Twister is used as the random number source. This is
-preferable over SystemRandom since it doesn't require a system call and there
-is no need for cryptographically secure numbers.
+The built-in Mersenne Twister is used as the random source. This is preferable
+over SystemRandom since it doesn't require a system call and there is no need
+for cryptographically secure numbers.
