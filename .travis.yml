@@ -1,0 +1,14 @@
+language: python
+python: 3.3
+env:
+  - TOX_ENV=py27
+  - TOX_ENV=py33
+  - TOX_ENV=py34
+  - TOX_ENV=docs
+  - TOX_ENV=flake8
+  - TOX_ENV=coverage
+install:
+  - pip install tox
+script:
+  - tox -e $TOX_ENV
+  - if [ $TOX_ENV = "coverage" ]; then pip install coveralls; coveralls; fi

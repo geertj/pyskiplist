@@ -1,0 +1,17 @@
+build/
+dist/
+*.egg-info
+*.pyc
+*.pyo
+.*.swp
+.*.swo
+*~
+__pycache__
+docs/_build
+docs/html
+.tox
+tests/memory.txt
+tests/performance.txt
+.coverage
+htmlcov
+README.html
