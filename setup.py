@@ -13,7 +13,7 @@ from setuptools import setup
 version_info = {
     'name': 'pyskiplist',
     'version': '1.0.0.dev0',
-    'description': 'Fast pure python indexable skiplist',
+    'description': 'Fast, pure Python indexable skip list',
     'author': 'Geert Jansen',
     'author_email': 'geertj@gmail.com',
     'url': 'https://github.com/geertj/pyskiplist',
