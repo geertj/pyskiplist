@@ -4,6 +4,9 @@ Welcome to PySkipList
 .. image:: https://travis-ci.org/geertj/pyskiplist.svg?branch=master
     :target: https://travis-ci.org/geertj/pyskiplist
 
+.. image:: https://coveralls.io/repos/geertj/pyskiplist/badge.svg?branch=master
+    :target: https://coveralls.io/r/geertj/pyskiplist
+
 PySkipList is a fast, pure Python implementation of an indexable skiplist. It
 implements a ``SkipList`` data structure that provides an always sorted,
 list-like data structure for (key, value) pairs. It efficiently supports the
