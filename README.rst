@@ -49,6 +49,8 @@ The following provides a few examples on how to use the ``SkipList`` API::
   >>> del sl[0]  # remove by position
 
 
+Full documentation can be found on http://pyskiplist.readthedocs.org/.
+
 Asymptotic Complexity
 ---------------------
 
