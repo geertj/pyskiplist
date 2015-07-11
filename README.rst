@@ -117,7 +117,7 @@ Reference papers on skiplists:
 * http://drum.lib.umd.edu/bitstream/1903/544/2/CS-TR-2286.1.pdf (cookbook)
 
 This implementation uses a novel (as far as I know) technique where it stores
-just a single link width per node, and only in nodes with level > 0. The link
+just a single link width per node, and only in nodes with level > 1. The link
 corresponds to the number of nodes skipped by the highest incoming link. Other
 implementations that I've seen all store a width for every link. This approach
 saves a lot of memory. The overhead should just be 1/e (0.37) integers per
