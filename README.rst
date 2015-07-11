@@ -13,6 +13,36 @@ Welcome to PySkipList
 .. image:: https://badge.fury.io/py/pyskiplist.svg
     :target: http://badge.fury.io/py/pyskiplist
 
+Note (July 2015)
+----------------
+
+On modern architectures, memory can be copied or moved very fast if done
+sequentially. This is mostly due to the availability of very wide SIMD
+instructions and byte cache line of 64 bytes or more. Because of this,
+algorithms that operate on data in a more sequential fashion may be more
+efficient than algorithms that don't, even if the sequential access means that
+sometimes larger chunks of data have to be copied or moved.
+
+B-tree data structures were originally specifically created for rotating
+storage that has slow seek times but high throughput. But because of the memory
+characteristics mentioned above, B-tree structures can actually be more
+efficient that binary trees (RB-trees, AVL trees, 2-3 trees) and skip list for
+in-memory applications.
+
+An example of such an in-memory B-tree implementation that serves the same use
+case as PySkipList is SortedContainers_. In addition to being faster than
+PySkipList, it also has the benefit that it uses less memory allocations and
+less memory overall, and that it doesn't need C code for acceleration. For some
+discussion on performance and memory usage, see #1.
+
+The PySkipList code is still a good example of how you can build an efficient,
+indexable skip list in pure Python code.
+
+Original README is below:
+
+Overview
+--------
+
 PySkipList is a fast, pure Python implementation of an indexable skiplist. It
 implements a ``SkipList`` data structure that provides an always sorted,
 list-like data structure for (key, value) pairs. It efficiently supports the
@@ -134,3 +164,6 @@ idea.
 The built-in Mersenne Twister is used as the random source. This is preferable
 over SystemRandom since it doesn't require a system call and there is no need
 for cryptographically secure numbers.
+
+
+.. _SortedContainers: https://pypi.python.org/pypi/sortedcontainers
